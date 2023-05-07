@@ -84,8 +84,11 @@ class StreamModel:
             temperature=temperature,
             top_p=top_p,
         ):
+            find_end_of_loop_cnt = 0
             for i in range(n):
                 # Check and update the finish status of the sequence.
+                if find_end_of_loop_cnt >= 3:
+                    continue
                 if finish_reasons[i]:
                     continue
                 if status[i] == 0:
@@ -107,6 +110,10 @@ class StreamModel:
 
                 # Yield predicted tokens.
                 text = detokenizers[i].decode(tokens[i])
+                if text == "#":
+                    find_end_of_loop_cnt += 1
+                    continue
+
                 offset = detokenizers[i].start
                 yield map_choice(
                     text,

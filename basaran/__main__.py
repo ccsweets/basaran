@@ -125,7 +125,7 @@ def create_completion():
     options = parse_options(schema)
     if "prompt" not in options:
         options["prompt"] = ""
-
+    options["prompt"] = "### instruction:" + options["prompt"] + " ### output:"
     # Limit maximum resource usage.
     if len(options["prompt"]) > COMPLETION_MAX_PROMPT:
         options["prompt"] = options["prompt"][:COMPLETION_MAX_PROMPT]
@@ -156,7 +156,6 @@ def create_completion():
 
 def create_completion_stream(options, template):
     """Return text completion results in event stream."""
-
     # Serialize data for event stream.
     def serialize(data):
         data = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
