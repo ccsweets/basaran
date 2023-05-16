@@ -123,9 +123,11 @@ def create_completion():
         "echo": bool,
     }
     options = parse_options(schema)
+    for key, value in options.items():
+        print(f"{key}: {value}")
     if "prompt" not in options:
         options["prompt"] = ""
-    options["prompt"] = "### instruction:" + options["prompt"] + " ### output:"
+    options["prompt"] = "### Q:" + options["prompt"] + " ### A:"
     # Limit maximum resource usage.
     if len(options["prompt"]) > COMPLETION_MAX_PROMPT:
         options["prompt"] = options["prompt"][:COMPLETION_MAX_PROMPT]

@@ -70,6 +70,7 @@ class StreamModel:
                     yield map_choice(text, i, text_offset=offset, **samples)
 
         # Generate completion tokens.
+        find_end_of_loop_cnt = 0
         for (
             tokens,
             token_logprobs,
@@ -84,11 +85,8 @@ class StreamModel:
             temperature=temperature,
             top_p=top_p,
         ):
-            find_end_of_loop_cnt = 0
             for i in range(n):
                 # Check and update the finish status of the sequence.
-                if find_end_of_loop_cnt >= 3:
-                    continue
                 if finish_reasons[i]:
                     continue
                 if status[i] == 0:
@@ -110,8 +108,11 @@ class StreamModel:
 
                 # Yield predicted tokens.
                 text = detokenizers[i].decode(tokens[i])
-                if text == "#":
-                    find_end_of_loop_cnt += 1
+                if "#" in text:
+                    for char in text:
+                        if char == "#":
+                            find_end_of_loop_cnt += 1
+                    print(f"end flag found {find_end_of_loop_cnt}")
                     continue
 
                 offset = detokenizers[i].start
@@ -122,6 +123,8 @@ class StreamModel:
                     finish_reason=finish_reasons[i],
                     **samples,
                 )
+            if find_end_of_loop_cnt >= 3:
+                break;
 
     def _sample(self, token, token_logprob, top_tokens, top_logprobs):
         """Sample log probabilities of the most likely tokens."""
