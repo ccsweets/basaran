@@ -452,13 +452,17 @@ class Inspector {
         e.target.textContent = "Stop";
         e.target.dataset.state = "stop";
 
+        console.log("addInputPrompt click:" + addInputPrompt)
+
+        console.log("addInputPrompt click:" + (addInputPrompt === ""))
+
         if(addInputPrompt === ""){
             completion = new Completion(
-            prompt.value,
-            handles.options,
-            inspector,
-            outputs
-        );
+                prompt.value,
+                handles.options,
+                inspector,
+                outputs
+            );
         } else {
           completion = new Completion(
             prompt.value + " ### input:" + addInputPrompt,
