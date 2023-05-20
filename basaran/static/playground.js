@@ -429,7 +429,7 @@ class Inspector {
 
     addInputs.forEach((addInput) => {
       addInput.addEventListener("click", (e) => {
-        addInputPrompt = e.target.dataset.input;
+        addInputPrompt = e.target.dataset.alt;
         submit.dispatchEvent(new Event("click"));
       });
     });
