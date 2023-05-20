@@ -423,13 +423,15 @@ class Inspector {
     let submit = document.querySelector(".pg-submit");
     let prompt = document.querySelector(".pg-prompt");
     let outputs = document.querySelector(".pg-outputs");
-    let addInput = document.querySelector(".pg-add-input");
+    let addInputs = document.querySelectorAll(".pg-add-input");
 
     let addInputPrompt = "";
 
-    addInput.addEventListener("click", (e) => {
+    addInputs.forEach((addInput) => {
+      addInput.addEventListener("click", (e) => {
         addInputPrompt = e.target.dataset.input;
         submit.dispatchEvent(new Event("click"));
+      });
     });
 
     submit.addEventListener("click", (e) => {
@@ -447,12 +449,23 @@ class Inspector {
         e.target.textContent = "Stop";
         e.target.dataset.state = "stop";
 
-        completion = new Completion(
+        if(addInputPrompt === ""){
+            completion = new Completion(
             prompt.value,
             handles.options,
             inspector,
             outputs
         );
+        } else {
+          completion = new Completion(
+            prompt.value + " ### input:" + addInputPrompt,
+            handles.options,
+            inspector,
+            outputs
+        );
+        }
+
+
         completion.addEventListener("done", () => {
 
             addInputPrompt = "";
