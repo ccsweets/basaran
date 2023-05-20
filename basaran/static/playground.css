@@ -106,6 +106,10 @@ body {
     background: rgb(255, 100, 100);
 }
 
+.pg-add-input[data-state="stop"] {
+    background: rgb(255, 100, 100);
+}
+
 .pg-submit[data-state="stop"]:hover {
     background: rgb(235, 80, 80);
 }

@@ -431,6 +431,8 @@ class Inspector {
       addInput.addEventListener("click", (e) => {
         addInputPrompt = e.target.dataset.alt;
         e.target.dataset.state = "stop";
+        console.log("addInputPrompt: " + addInputPrompt);
+        console.log("e.target.dataset.state: " + e.target.dataset.state);
         submit.dispatchEvent(new Event("click"));
       });
     });
