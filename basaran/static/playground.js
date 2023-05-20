@@ -430,8 +430,7 @@ class Inspector {
     addInputs.forEach((addInput) => {
       addInput.addEventListener("click", (e) => {
         addInputPrompt = e.target.dataset.alt;
-        console.log("1"+e.target.dataset.alt);
-        console.log("2"+addInputPrompt);
+        e.target.dataset.state = "stop";
         submit.dispatchEvent(new Event("click"));
       });
     });
@@ -471,6 +470,11 @@ class Inspector {
         completion.addEventListener("done", () => {
 
             addInputPrompt = "";
+
+            addInputs.forEach((addInput) => {
+              addInput.dataset.state = "none";
+            });
+
             e.target.textContent = "Submit";
             e.target.dataset.state = "submit";
         });
