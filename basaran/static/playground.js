@@ -442,7 +442,7 @@ class Inspector {
                 return;
             }
 
-            completion.clear();
+            //completion.clear();
         }
         const addInputPrompt = promptValue.value;
         inspector.clear();
