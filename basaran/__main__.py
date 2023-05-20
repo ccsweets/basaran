@@ -111,6 +111,7 @@ def retrieve_model(name):
 @app.route("/v1/completions", methods=["GET", "POST"])
 def create_completion():
     """Create a completion for the provided prompt and parameters."""
+
     schema = {
         "prompt": str,
         "min_tokens": int,
@@ -127,7 +128,7 @@ def create_completion():
         print(f"{key}: {value}")
     if "prompt" not in options:
         options["prompt"] = ""
-    options["prompt"] = "### Q:" + options["prompt"] + " ### A:"
+    options["prompt"] = "### instruction:" + options["prompt"] + " ### output:"
     # Limit maximum resource usage.
     if len(options["prompt"]) > COMPLETION_MAX_PROMPT:
         options["prompt"] = options["prompt"][:COMPLETION_MAX_PROMPT]

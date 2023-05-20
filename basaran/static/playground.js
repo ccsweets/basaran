@@ -423,8 +423,18 @@ class Inspector {
     let submit = document.querySelector(".pg-submit");
     let prompt = document.querySelector(".pg-prompt");
     let outputs = document.querySelector(".pg-outputs");
+    let addInput = document.querySelector(".pg-add-input");
+
+    let addInputPrompt = "";
+
+    addInput.addEventListener("click", (e) => {
+        addInputPrompt = e.target.dataset.input;
+        submit.dispatchEvent(new Event("click"));
+        addInputPrompt = "";
+    });
 
     submit.addEventListener("click", (e) => {
+        addInputPrompt = "";
         if (completion) {
             if (completion.running) {
                 completion.stop();
