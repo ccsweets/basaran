@@ -425,14 +425,12 @@ class Inspector {
     let outputs = document.querySelector(".pg-outputs");
     let addInputs = document.querySelectorAll(".pg-add-input");
 
-    let addInputPrompt = "";
+    let promptValue = document.querySelector(".pg-hidden-prompt");
 
     addInputs.forEach((addInput) => {
       addInput.addEventListener("click", (e) => {
-        addInputPrompt = e.target.dataset.alt;
+        promptValue.value = e.target.dataset.alt;
         e.target.dataset.state = "stop";
-        console.log("addInputPrompt: " + addInputPrompt);
-        console.log("e.target.dataset.state: " + e.target.dataset.state);
         submit.dispatchEvent(new Event("click"));
       });
     });
@@ -446,15 +444,12 @@ class Inspector {
 
             completion.clear();
         }
-
+        const addInputPrompt = promptValue.value;
         inspector.clear();
 
         e.target.textContent = "Stop";
         e.target.dataset.state = "stop";
 
-        console.log("addInputPrompt click:" + addInputPrompt)
-
-        console.log("addInputPrompt click:" + (addInputPrompt === ""))
 
         if(addInputPrompt === ""){
             completion = new Completion(
@@ -475,8 +470,7 @@ class Inspector {
 
         completion.addEventListener("done", () => {
 
-            addInputPrompt = "";
-
+            promptValue.value = "";
             addInputs.forEach((addInput) => {
               addInput.dataset.state = "none";
             });
