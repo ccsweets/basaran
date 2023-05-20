@@ -316,8 +316,16 @@ class Completion extends EventTarget {
         this.dispatchEvent(new CustomEvent("done"));
     }
 
+    clearData() {
+        for (const completion of this.completions) {
+            completion.dataset.finish = "user";
+        }
+        this.eventSource.close();
+        this.dispatchEvent(new CustomEvent("clear_data"));
+    }
+
     clear() {
-        this.stop();
+        this.clearData();
         this.container.replaceChildren();
     }
 }
@@ -442,7 +450,7 @@ class Inspector {
                 return;
             }
 
-            //completion.clear();
+            completion.clear();
         }
         const addInputPrompt = promptValue.value;
         inspector.clear();
@@ -474,6 +482,12 @@ class Inspector {
             addInputs.forEach((addInput) => {
               addInput.dataset.state = "none";
             });
+
+            e.target.textContent = "Submit";
+            e.target.dataset.state = "submit";
+        });
+
+        completion.addEventListener("clear_data", () => {
 
             e.target.textContent = "Submit";
             e.target.dataset.state = "submit";
