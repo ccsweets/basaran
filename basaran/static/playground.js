@@ -430,11 +430,9 @@ class Inspector {
     addInput.addEventListener("click", (e) => {
         addInputPrompt = e.target.dataset.input;
         submit.dispatchEvent(new Event("click"));
-        addInputPrompt = "";
     });
 
     submit.addEventListener("click", (e) => {
-        addInputPrompt = "";
         if (completion) {
             if (completion.running) {
                 completion.stop();
@@ -456,6 +454,8 @@ class Inspector {
             outputs
         );
         completion.addEventListener("done", () => {
+
+            addInputPrompt = "";
             e.target.textContent = "Submit";
             e.target.dataset.state = "submit";
         });
