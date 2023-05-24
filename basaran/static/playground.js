@@ -461,14 +461,14 @@ class Inspector {
 
         if(addInputPrompt === ""){
             completion = new Completion(
-                prompt.value,
+                "### 유저:"+prompt.value + " ### 모아라:",
                 handles.options,
                 inspector,
                 outputs
             );
         } else {
           completion = new Completion(
-            prompt.value + " ### input:" + addInputPrompt,
+            "### 제시문:" + prompt.value + " ### 질문:" + addInputPrompt + " ### 답변:",
             handles.options,
             inspector,
             outputs

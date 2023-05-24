@@ -128,7 +128,7 @@ def create_completion():
         print(f"{key}: {value}")
     if "prompt" not in options:
         options["prompt"] = ""
-    options["prompt"] = "### instruction:" + options["prompt"] + " ### output:"
+    #options["prompt"] = "### instruction:" + options["prompt"] + " ### output:"
     # Limit maximum resource usage.
     if len(options["prompt"]) > COMPLETION_MAX_PROMPT:
         options["prompt"] = options["prompt"][:COMPLETION_MAX_PROMPT]
