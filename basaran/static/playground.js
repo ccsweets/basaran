@@ -466,6 +466,13 @@ class Inspector {
                 inspector,
                 outputs
             );
+        } else if (addInputPrompt.includes('번역')){
+           completion = new Completion(
+            "### 원문:" + prompt.value + " ### 지시문:" + addInputPrompt + " ### 번역결과:",
+            handles.options,
+            inspector,
+            outputs
+        );
         } else {
           completion = new Completion(
             "### 제시문:" + prompt.value + " ### 질문:" + addInputPrompt + " ### 답변:",
