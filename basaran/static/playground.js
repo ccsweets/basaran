@@ -473,6 +473,13 @@ class Inspector {
             inspector,
             outputs
         );
+        } else if (addInputPrompt.includes('커스텀')){
+           completion = new Completion(
+            prompt.value,
+            handles.options,
+            inspector,
+            outputs
+        );
         } else {
           completion = new Completion(
             "### 제시문:" + prompt.value + " ### 질문:" + addInputPrompt + " ### 답변:",
