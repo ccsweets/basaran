@@ -84,6 +84,7 @@ class StreamModel:
             max_new_tokens=max_tokens,
             temperature=temperature,
             top_p=top_p,
+            repetition_penalty=1.5,
         ):
             for i in range(n):
                 # Check and update the finish status of the sequence.
