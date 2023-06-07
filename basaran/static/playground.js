@@ -525,6 +525,11 @@ class Inspector {
         resizePrompt();
     });
 
+    document.querySelector(".pg-custom-prompt").addEventListener("click", () => {
+        prompt.value = "### 아래 본문은 제공을 위한 본문입니다.\n[본문]\n\n### 원문 질의 - 본문에 맞추어 응답합니다:\n\n### 질의 응답 - 제공된 본문에 의거해 대답 합니다:\n";
+        resizePrompt();
+    });
+
     document
         .querySelector(".pg-clear-completions")
         .addEventListener("click", () => {
