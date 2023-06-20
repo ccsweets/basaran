@@ -2,7 +2,7 @@
 
 apt-get update
 apt-get install git-lfs
-
+apt-get install openjdk-8-jdk
 apt-get install vim
 
 

@@ -1,3 +1,3 @@
-!/bin/bash
+#!/bin/bash
 
-MODEL=$1 PORT=30098 trust_remote_code=True python -m basaran
+nohup python -m basaran MODEL=$1 PORT=30098 trust_remote_code=True > basaran.log
