@@ -36,7 +36,7 @@ logging:
     org.springframework.web.SimpLogging: INFO
     com.ulisesbocchio.jasyptspringboot: ERROR
   file:
-    name: /data/app/chatbot/mrgpt-slave/log/slave.log 
+    name: /app/basaran/shell/log/slave.log
 
 
 basaran:
