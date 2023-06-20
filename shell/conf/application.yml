@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@wigo2.moara.org:31521:orcl
+    username: dev03
+    password: dnlrh#01
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  mvc:
+    log-request-details: true
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  jackson:
+    property-naming-strategy=SNAKE_CASE
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  port: 30089
+  error:
+    whitelabel:
+      enabled: false
+
+debug: true
+logging:
+  level:
+    org.moara: DEBUG
+#    org.springframework.web: TRACE
+#    org.springframework.security: TRACE
+    org.springframework.boot.autoconfigure: ERROR
+    org.springframework.web.SimpLogging: INFO
+    com.ulisesbocchio.jasyptspringboot: ERROR
+  file:
+    name: /data/app/chatbot/mrgpt-slave/log/slave.log 
+
+
+basaran:
+  url-list: http://localhost:30098/
+
+master:
+  url: ws://sc.wigo.ai:30099
+
