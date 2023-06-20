@@ -7,10 +7,10 @@ apt-get install vim
 
 
 mkdir /app
-mkdir /workspace/moara
-useradd  moara
+mkdir /home/moara
+useradd moara
 chown moara:moara /app
-chown moara:moara /workspace/moara
+chown moara:moara /home/moara
 su - moara
 bash
 
@@ -25,14 +25,14 @@ conda create -n moara python=3.09
 
 
 conda activate moara
-cd /workspace/moara
+cd /app
 git config --global user.email "tramp0102@gmail.com"
 git config --global user.name "ccsweets"
 git clone https://github.com/ccsweets/basaran
 
 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
 
-cd basaran
+cd /app/basaran
 pip install -r requirements.txt
 
 huggingface-cli login
