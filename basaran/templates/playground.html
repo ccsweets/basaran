@@ -23,26 +23,36 @@
                     <button class="pg-button pg-custom-prompt" data-alt="커스텀프롬프트">커스텀프롬프트</button>
                     <button class="pg-button pg-clear-prompt">Clear prompt</button>
                     <button class="pg-button pg-clear-completions">Clear completions</button>
-
-                    <button class="pg-button pg-add-input" data-alt="이 문서를 요약 해봐.">요약</button>
-                    <button class="pg-button pg-add-input" data-alt="이 문서를 분류 하면 결과가 뭐야?">분류</button>
-                    <button class="pg-button pg-add-input" data-alt="고객의 이름이 뭐야?">고객명</button>
-                    <button class="pg-button pg-add-input" data-alt="상담사 이름이 뭐야?">상담사명</button>
-                    <button class="pg-button pg-add-input" data-alt="날짜가 몇일이야?">날짜</button>
-                    <button class="pg-button pg-add-input" data-alt="전화번호가 몇번이야?">전화번호</button>
-                    <button class="pg-button pg-add-input" data-alt="고객의 통화목적이 뭐야?">통화목적</button>
-                    <button class="pg-button pg-add-input" data-alt="고객 질문의 의도가 뭐야?">고객의 의도</button>
-                    <button class="pg-button pg-add-input" data-alt="이 문서에 대한 제목을 달아봐">제목생성</button>
-                    <button class="pg-button pg-add-input" data-alt="이 대화를 보고 어떤 인사이트를 얻을수 있을까요?">인사이트분석</button>
-                    <button class="pg-button pg-add-input" data-alt="상담사의 대화에 문제는 없었어?">상담사평가</button>
-                    <button class="pg-button pg-add-input" data-alt="상담사가 능숙하게 응대했는지 평가를 하고, 10점 만점의 점수를 부여 해보세요.">점수부여</button>
-                    <!--button class="pg-button pg-add-input" data-alt="'지점명(IBK기업은행)' 이 뭔지 정확하게 찾아봐.">객체-지점</button>
-                    <button class="pg-button pg-add-input" data-alt="'통지수단' 이 뭔지 정확하게 찾아봐.">객체-통지수단</button>
-                    <button class="pg-button pg-add-input" data-alt="'서류명' 이 뭔지 정확하게 찾아봐.">객체-서류명</button-->
-                    <button class="pg-button pg-add-input" data-alt="이 문서를 번역해봐.">번역</button>
-                    <button class="pg-button pg-add-input" data-alt="제시문을 문단별로 질문을 번호달아서 알려줘.">질문지생성</button>
                     <button class="pg-button pg-add-input" data-alt="커스텀">커스텀</button>
                     <input type="hidden" class="pg-hidden-prompt" value=""/>
+                    <p>
+                        <span>KMS분석</span>
+                        <button class="pg-button pg-add-input" data-alt="MRGPT, 중요한 단어를 뽑아줘.">중요단어추출</button>
+                        <button class="pg-button pg-add-input" data-alt="MRGPT, 상담센터에 전화를 건 고객처럼 질문을 해보세요.">요약정리</button>
+                        <button class="pg-button pg-add-input" data-alt="MRGPT, 이 문서를 요약해봐.">질문지생성</button>
+                        <button class="pg-button pg-add-input" data-alt="MRGPT, 용어에 대한 설명을 말해줘.">상담원답변지생성</button>
+                        <button class="pg-button pg-add-input" data-alt="MRGPT, 상담원처럼 설명해봐.">용어추출</button>
+                    </p>
+                    <p>
+                        <span>STT분석</span>
+                        <button class="pg-button pg-add-input" data-alt="이 문서를 요약 해봐.">요약</button>
+                        <button class="pg-button pg-add-input" data-alt="이 문서를 분류 하면 결과가 뭐야?">분류</button>
+                        <button class="pg-button pg-add-input" data-alt="고객의 이름이 뭐야?">고객명</button>
+                        <button class="pg-button pg-add-input" data-alt="상담사 이름이 뭐야?">상담사명</button>
+                        <button class="pg-button pg-add-input" data-alt="날짜가 몇일이야?">날짜</button>
+                        <button class="pg-button pg-add-input" data-alt="전화번호가 몇번이야?">전화번호</button>
+                        <button class="pg-button pg-add-input" data-alt="고객의 통화목적이 뭐야?">통화목적</button>
+                        <button class="pg-button pg-add-input" data-alt="고객 질문의 의도가 뭐야?">고객의 의도</button>
+                        <button class="pg-button pg-add-input" data-alt="이 문서에 대한 제목을 달아봐">제목생성</button>
+                        <button class="pg-button pg-add-input" data-alt="이 대화를 보고 어떤 인사이트를 얻을수 있을까요?">인사이트분석</button>
+                        <button class="pg-button pg-add-input" data-alt="상담사의 대화에 문제는 없었어?">상담사평가</button>
+                        <button class="pg-button pg-add-input" data-alt="상담사가 능숙하게 응대했는지 평가를 하고, 10점 만점의 점수를 부여 해보세요.">점수부여</button>
+                        <!--button class="pg-button pg-add-input" data-alt="'지점명(IBK기업은행)' 이 뭔지 정확하게 찾아봐.">객체-지점</button>
+                        <button class="pg-button pg-add-input" data-alt="'통지수단' 이 뭔지 정확하게 찾아봐.">객체-통지수단</button>
+                        <button class="pg-button pg-add-input" data-alt="'서류명' 이 뭔지 정확하게 찾아봐.">객체-서류명</button-->
+                        <button class="pg-button pg-add-input" data-alt="이 문서를 번역해봐.">번역</button>
+                        <button class="pg-button pg-add-input" data-alt="제시문을 문단별로 질문을 번호달아서 알려줘.">질문지생성</button>
+                    </p>
 
                 </div>
                 <div class="pg-outputs"></div>
